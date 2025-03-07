@@ -1,0 +1,8 @@
+[conda]
+ignore_base = false
+
+[rlang]
+symbol = ' '
+
+[python]
+symbol = ' '

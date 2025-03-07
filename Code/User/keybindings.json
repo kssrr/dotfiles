@@ -1,0 +1,35 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "alt+right",
+        "command": "cursorLineEnd"
+    },
+    {
+        "key": "alt+left",
+        "command": "cursorLineStart"
+    },
+    {
+        "key": "Ctrl+Shift+m",
+        "command": "type",
+        "args": { "text": "|> " }
+    },
+    {
+        "key": "Alt+-",
+        "command": "type",
+        "args": { "text": " <- " }
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "quarto.insertCodeCell",
+        "when": "editorTextFocus && !findInputFocussed && !replaceInputFocussed && editorLangId == 'quarto'"
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "-quarto.insertCodeCell",
+        "when": "editorTextFocus && !findInputFocussed && !replaceInputFocussed && editorLangId == 'quarto'"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "toggleVim"
+    }
+]

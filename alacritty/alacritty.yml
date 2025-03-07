@@ -1,0 +1,8 @@
+font:
+  family: "Roboto Mono Nerd Font"
+  size: 14
+
+window:
+  padding:
+    x: 5
+    y: 5
