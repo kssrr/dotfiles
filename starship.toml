@@ -1,3 +1,15 @@
+# Install & enable a "Nerd Font" in your terminal: https://www.nerdfonts.com/
+
+format = "[ ](bold fg:#FFA500) $all"
+#format = "[ ](bold fg:#FFA500) $all"
+
+[character]
+#success_symbol = '[➜](bold green) '
+success_symbol = "[❯](purple)"
+#error_symbol = "[❯](red)"
+error_symbol = '[✗](bold red) '
+vimcmd_symbol = "[❮](green)"
+
 [conda]
 ignore_base = false
 
@@ -6,3 +18,13 @@ symbol = ' '
 
 [python]
 symbol = ' '
+
+[username]
+format = '[$user]($style)'
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](bold blue)@[$hostname](bold red) '
+disabled = false
