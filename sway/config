@@ -12,7 +12,7 @@ set $menu wofi --show drun
 
 # Output configuration
 
-output * bg /home/kssrr/Bilder/Hintergründe/nature/mountain-sunset.jpg fill
+output * bg /home/kssrr/Bilder/Hintergründe/nature/0158.jpg fill
 
 # Enable autotiling (script in /usr/locall/bin):
 exec_always autotiling.py
@@ -40,7 +40,7 @@ input "type:touchpad" {
           before-sleep 'swaylock -f -c 000000'
 
 # Font
-font pango:monospace 8
+font pango:monospace 14
 
 # Volume controls
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -240,5 +240,18 @@ client.focused "#61afef" "#61afef" "#61afef" "#61afef" "#61afef"
 bar {
     swaybar_command waybar
 }
+#bar {
+#    position top
+#
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    # The default just shows the current date and time.
+#    status_command while $HOME/.config/sway/sway-status; do sleep 1; done;
+#
+#   colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
 include /etc/sway/config.d/*

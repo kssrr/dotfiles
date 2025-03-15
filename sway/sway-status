@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Date
+DATE=$(date "+%a %F %R")
+
+# Network
+if ip link show | grep -q "state UP"; then
+    STATUS="Connected"
+    INTERFACE=$(ip -o link show | awk -F': ' '/state UP/ {print $2}')
+    NETWORK="Connected ($INTERFACE)"
+else
+    NETWORK="Disconnected"
+fi
+
+# Alsa master volume
+VOLUME=$(amixer get Master | grep "Right:" | cut -f 7,8 -d " ")
+
+# Battery info
+
+# I have a thinkpad with a dual battery setup which makes this 
+# part a bit awkward. If you only have one battery (probably BAT0),
+# just call `get_battery_info`; should work.
+get_battery_info() {
+    local bat=$1
+    if [[ -e "/sys/class/power_supply/$bat/capacity" ]]; then
+        local capacity=$(cat /sys/class/power_supply/$bat/capacity)
+        local status=$(cat /sys/class/power_supply/$bat/status)
+        if [[ $status == "Charging" ]]; then
+            echo "[$bat: $capacity% (Charging)]"
+        else
+            echo "[$bat: $capacity%]"
+        fi
+    fi
+}
+
+BATTERY_INFO=""
+for bat in BAT0 BAT1; do
+    info=$(get_battery_info $bat)
+    if [[ -n $info ]]; then
+        BATTERY_INFO+="$info "
+    fi
+done
+
+# no battery found:
+if [[ -z $BATTERY_INFO ]]; then
+    BATTERY_INFO="No battery"
+fi
+
+
+# Status bar
+#echo "VOL:" $VOLUME "| NETW:" $NETWORK "| BAT:" $BATTERY_INFO "|"  $DATE
+echo "VOL: $VOLUME | NETW: $NETWORK | BAT: $BATTERY_INFO | $DATE"

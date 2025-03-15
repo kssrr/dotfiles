@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 4px;
-    font-family: 'Jetbrains Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
-    font-size: 16px;
+    font-family: 'Jetbrains Mono', 'Font Awesome', monospace;
+    font-size: 18px;
 }
 
 /*
@@ -68,10 +68,29 @@ button:hover {
     background-color: #a37800;
 }
 
+/*
+
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
     color: #ffffff;
+}
+*/
+#workspaces {
+    padding: 3px 10px 3px 10px;
+    font-size: 16px;
+}
+
+#workspaces button {
+    /*border: none;
+    border-radius: 16px;*/
+    padding: 0 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 #workspaces button:hover {
